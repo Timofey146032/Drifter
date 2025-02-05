@@ -1,4 +1,8 @@
-class Description():
+from enum import Enum
+from pygame.math import Vector2
+
+
+class Description(Enum):
     accelerationFriction = 0.75
     rollingFrictionOnTrack = 0.1
     rotationFriction = 1.0
@@ -10,6 +14,14 @@ class Description():
 
 
 class Car(pygame.sprite.Sprite, Description):
-    def __init__ (self, size, health, *group):
+    def __init__(self, desk, surface, index, isHuman, *group):
         super().__init__(*group)
-        size = self.size
+        self.size = size
+        self.desc = desc
+        self.onTrackFriction = MFrictionGenerator(desc.rollingFrictionOnTrack, 0)
+        ...
+
+    def createTires(self):
+        offTrackFrictionFactor = 0.8
+        frontFriction = 0.85
+        leftFrontTire = Tire(self, frontFriction, frontFriction * offTrackFrictionFactor)

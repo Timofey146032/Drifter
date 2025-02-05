@@ -2,7 +2,6 @@ from abc import ABC
 from typing import Optional, List
 import weakref
 
-print('master')
 class MCObject:
 
     def __init__(self, mass):
@@ -72,4 +71,3 @@ if __name__ == "__main__":
     force_manager.apply_forces(my_object)
     gravity.enable(False)
     force_manager.apply_forces(my_object)
-    print('1')
